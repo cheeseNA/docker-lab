@@ -12,13 +12,15 @@ ENV LC_ALL=en_US.UTF-8
 
 # install Python3
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key A4B469963BF863CC
-RUN apt-get update && apt-get install -y python3.9
+RUN apt-get update && apt-get install -y python3.9 python3.9-venv
 
 # install other packages
 ENV PATH="/root/.cargo/bin:$PATH"
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y && cargo install exa git-delta
 RUN apt-get install -y tree bat jq fasd zsh ffmpeg tldr tmux wget neovim
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 -
+
+# install poetry
+RUN curl -sSL https://install.python-poetry.org | python3.9 -
 
 # locale settings
 RUN apt-get install -y locales
