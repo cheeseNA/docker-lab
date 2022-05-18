@@ -31,6 +31,8 @@ ln -s ~/dotfiles/.zprofile ~/.zprofile
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 
 # poetry settings
+poetry self update --preview
+poetry completions zsh > ~/.zfunc/_poetry
 echo export 'PATH="$HOME/.poetry/bin:$PATH"' >> ~/.zshrc
 
 # bat settings
