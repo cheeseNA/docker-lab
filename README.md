@@ -9,7 +9,8 @@ This repository is assumed to be used in servers of AYYM lab.
 Clone this repository and change currect directory.
 
 ```sh
-$ git clone git@github.com:cheeseNA/docker-lab.git && cd docker-lab
+$ git clone git@github.com:cheeseNA/docker-lab.git
+$ cd docker-lab
 ```
 
 Build the image.
@@ -18,10 +19,11 @@ Build the image.
 $ docker build -t docker-lab-image .
 ```
 
-Start the container.
+Make ws folder to mount and start the container.
 
 ```sh
-$ docker run -it --gpus all --name docker-lab docker-lab-image
+$ mkdir ws
+$ docker run -it -v $(pwd)/ws:/root/ws --gpus all --name docker-lab docker-lab-image
 ```
 
 > If you want to enable ssh-agent forwarding to the container,
@@ -42,5 +44,5 @@ Then, attach shell to the container and execute the following command.
 Refresh shell and setup is done!
 
 ```sh
-exec $SHELL -l
+$ exec $SHELL -l
 ```
