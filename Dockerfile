@@ -32,4 +32,7 @@ COPY ./deploy.sh /root/deploy.sh
 # set the working directory
 WORKDIR /root
 
+# make workspace dir to mount
+RUN mkdir /root/ws
+
 CMD ["zsh"]
