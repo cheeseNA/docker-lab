@@ -1,5 +1,0 @@
-docker build -t exp .
-docker run -it --gpus all -v $SSH_AUTH_SOCK:/ssh-agent -e SSH_AUTH_SOCK=/ssh-agent --name expc exp
-bash deploy.sh
-
-exec $SHELL -l
