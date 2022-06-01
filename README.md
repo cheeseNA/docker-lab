@@ -29,7 +29,7 @@ $ docker run -it -v $(pwd)/ws:/root/ws --gpus all --name docker-lab docker-lab-i
 > If you want to enable ssh-agent forwarding to the container,
 > add options below.
 > ```sh
-> -v $SSH_AUTH_SOCK:/ssh-agent -e SSH_AUTH_SOCK=/ssh-agent
+> -v $(readlink -f $SSH_AUTH_SOCK):/ssh-agent -e SSH_AUTH_SOCK=/ssh-agent
 > ```
 > Make sure that you are connecting a lab server with `-A` flag or `ForwardAgent yes` option in `~/.ssh/config`
 > and that `ssh-agent` is running on your computer.
