@@ -16,7 +16,10 @@ RUN apt-get update && apt-get install -y python3.9 python3.9-venv
 
 # install other packages
 ENV PATH="/root/.cargo/bin:$PATH"
-RUN curl https://sh.rustup.rs -sSf | sh -s -- -y && cargo install exa git-delta
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+RUN rustup toolchain install nightly
+RUN rustup default nightly
+RUN cargo install git-delta exa
 RUN apt-get install -y tree bat jq fasd zsh ffmpeg tldr tmux wget neovim
 
 # install poetry
